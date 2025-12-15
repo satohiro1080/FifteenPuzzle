@@ -18,6 +18,8 @@ public:
 	bool IsOutside(int x, int y);
 	// 指定番号(0～15)のパネルが正しい位置にあればtrue
 	bool IsCorrectPos(int panelNumber);
+	// 番号を座標に変換(0なら左上、1ならその右隣…)
+	void NumberToPos(int number, int& refPosX, int& refPosY);
 private:
 	std::vector<std::vector<int>> m_grid;
 };
