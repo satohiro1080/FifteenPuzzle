@@ -20,6 +20,7 @@ PlayScene::PlayScene()
 	m_board = new Board();
 
 	m_frame = new Frame();
+	m_frame->SetBoard(m_board);
 
 	m_answer = new Answer();
 	m_question = new Question();
@@ -75,6 +76,7 @@ void PlayScene::Update()
 		m_cursorY = 0;
 	}
 	m_question->Update();
+	m_frame->SetCursor(m_cursorX, m_cursorY);
 }
 
 void PlayScene::Draw()
@@ -84,7 +86,6 @@ void PlayScene::Draw()
 		for (int x = 0; x < m_board->GetWidth(); x++)
 		{
 			int num = m_board->Get(x, y);
-
 			int color = (x == m_cursorX && y == m_cursorY) ?
 				0xFF0000 :
 				0xFFFFFF;
@@ -101,6 +102,16 @@ void PlayScene::Draw()
 	}
 	m_frame->Draw();
 	m_question->Draw();
+
+	//=== MouseInputManagerテストコード ============
+	DrawBox(400, 50, 400 + 100, 50 + 100, 0xFFFFFF, FALSE);
+
+	if (m_mouseInputManager->IsClickArea(VECTOR2(400, 50), VECTOR2(100, 100)))
+	{
+		DrawString(100, 450, "クリックされました", 0xFFFFFF);
+	}
+	//==============================================
+
 	DrawString(0, 0, "PLAY SCENE", GetColor(255, 255, 255));
 	DrawString(100, 400, "Push [T]Key To Title", GetColor(255, 255, 255));
 }
