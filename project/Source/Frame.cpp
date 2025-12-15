@@ -25,8 +25,10 @@ void Frame::Draw()
 
 void Frame::SetOpenShutter(float time)
 {
+	shuterS = ssOPEN;
 }
 
 void Frame::SetCloseShutter(float time)
 {
+	shuterS = ssCLOSE;
 }
