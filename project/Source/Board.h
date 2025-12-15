@@ -11,6 +11,8 @@ public:
 	int GetHeight() const;
 	// 空白として扱う番号を取得
 	int GetBlankNum() const;
+	// ランダムに並べ替え(クリア不能盤面になることあり)
+	void Shuffle();
 
 	// 移動可能なら移動する 移動不能ならfalse
 	bool Slide(int x, int y);

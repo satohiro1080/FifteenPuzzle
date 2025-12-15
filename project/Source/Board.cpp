@@ -1,25 +1,19 @@
 #include "Board.h"
+#include <unordered_map>
+#include <DxLib.h>
+#include <random>
 
 namespace
 {
 	static const int GRID_WIDTH = 4;
 	static const int GRID_HEIGHT = 4;
+	static const int GRID_COUNT = GRID_WIDTH * GRID_HEIGHT;
 	static const int BLANK_NUM = 15;
 }
 
 Board::Board()
 {
-	for (int y = 0; y < GRID_HEIGHT; y++)
-	{
-		std::vector<int> line;
-
-		for (int x = 0; x < GRID_WIDTH; x++)
-		{
-			line.push_back(y * GRID_WIDTH + x);
-		}
-
-		m_grid.push_back(line);
-	}
+	Shuffle();
 }
 
 Board::~Board()
@@ -44,6 +38,44 @@ int Board::GetHeight() const
 int Board::GetBlankNum() const
 {
 	return BLANK_NUM;
+}
+
+void Board::Shuffle()
+{
+	m_grid.clear();
+
+	std::vector<int> numbers;
+	for (int i = 0; i < GRID_COUNT - 1; i++)
+	{
+		numbers.push_back(i);
+	}
+
+	// 乱数生成器の準備
+	std::random_device rd;
+	std::mt19937 g(rd());
+
+	// 配列をシャッフル（並べ替え）
+	std::shuffle(numbers.begin(), numbers.end(), g);
+
+	for (int y = 0; y < GRID_HEIGHT; y++)
+	{
+		std::vector<int> line;
+
+		for (int x = 0; x < GRID_WIDTH; x++)
+		{
+			if (numbers.empty())
+			{
+				line.push_back(BLANK_NUM);
+			}
+			else
+			{
+				line.push_back(numbers.back());
+				numbers.pop_back();
+			}
+		}
+
+		m_grid.push_back(line);
+	}
 }
 
 bool Board::Slide(int x, int y)
