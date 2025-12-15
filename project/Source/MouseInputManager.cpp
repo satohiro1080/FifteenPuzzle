@@ -51,7 +51,20 @@ void MouseInputManager::Draw()
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
 
-bool MouseInputManager::IsClickArea(const VECTOR2& areaPos, const VECTOR2& areaSize)
+bool MouseInputManager::IsClickArea(const VECTOR2& areaPos, const VECTOR2& areaSize) const
 {
+	if (m_isClick == false) return false;
+
+	VECTOR2 areaEnd = areaPos + areaSize;
+
+	// 矩形内にカーソルがあれば
+	if (m_cursorPosition.x > areaPos.x &&
+		m_cursorPosition.x <= areaEnd.x &&
+		m_cursorPosition.y > areaPos.y &&
+		m_cursorPosition.y <= areaEnd.y)
+	{
+		return true;
+	}
+
 	return false;
 }
