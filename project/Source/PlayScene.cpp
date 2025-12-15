@@ -2,6 +2,11 @@
 #include "Screen.h"
 #include "Board.h"
 #include"Frame.h"
+#include "GameManager.h"
+#include "Answer.h"
+#include "Question.h"
+#include "MouseInputManager.h"
+
 namespace
 {
 	static const int TILE_SIZE = 20;
@@ -10,9 +15,16 @@ namespace
 
 PlayScene::PlayScene()
 {
+	m_gameManager = new GameManager();
+
 	m_board = new Board();
 
 	m_frame = new Frame();
+
+	m_answer = new Answer();
+	m_question = new Question();
+
+	m_mouseInputManager = new MouseInputManager();
 
 	m_cursorX = 0;
 	m_cursorY = 0;
