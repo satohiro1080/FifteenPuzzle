@@ -9,6 +9,8 @@ public:
 	int Get(int x, int y) const;
 	int GetWidth() const;
 	int GetHeight() const;
+	// ‹ó”’‚Æ‚µ‚Äˆµ‚¤”Ô†‚ğæ“¾
+	int GetBlankNum() const;
 
 	// ˆÚ“®‰Â”\‚È‚çˆÚ“®‚·‚é ˆÚ“®•s”\‚È‚çfalse
 	bool Slide(int x, int y);

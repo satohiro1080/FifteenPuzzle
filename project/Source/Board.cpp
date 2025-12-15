@@ -4,6 +4,7 @@ namespace
 {
 	static const int GRID_WIDTH = 4;
 	static const int GRID_HEIGHT = 4;
+	static const int BLANK_NUM = 15;
 }
 
 Board::Board()
@@ -40,6 +41,11 @@ int Board::GetHeight() const
 	return GRID_HEIGHT;
 }
 
+int Board::GetBlankNum() const
+{
+	return BLANK_NUM;
+}
+
 bool Board::Slide(int x, int y)
 {
 	// 周囲4マスに空きマスがあるか見て、あればスワップ
@@ -66,7 +72,7 @@ bool Board::Slide(int x, int y)
 
 		if (IsOutside(targetX, targetY)) continue;
 
-		if (m_grid[targetY][targetX] == 0)
+		if (m_grid[targetY][targetX] == BLANK_NUM)
 		{
 			Swap(x, y, targetX, targetY);
 			return true;

@@ -11,8 +11,6 @@ namespace
 PlayScene::PlayScene()
 {
 	m_board = new Board();
-	m_board->Swap(0, 0, 1, 1);
-	m_board->Slide(1, 2);
 
 	m_frame = new Frame();
 
@@ -78,7 +76,7 @@ void PlayScene::Draw()
 				0xFF0000 :
 				0xFFFFFF;
 
-			if (num == 0)
+			if (num == m_board->GetBlankNum())
 			{
 				DrawFormatString(GRID_OFFSET + x * TILE_SIZE, GRID_OFFSET + y * TILE_SIZE, color, "_");
 			}
