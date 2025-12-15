@@ -1,6 +1,8 @@
 #include "Answer.h"
 #include "Screen.h"
 
+#include "MouseInputManager.h"
+
 namespace AnswerConfig
 {
 	VECTOR2 boxSize = VECTOR2(150.0f, 100.0f);
@@ -13,6 +15,8 @@ Answer::Answer()
 	answerBox[0].position = VECTOR2(ofset, Screen::HEIGHT - Screen::HEIGHT / 4.0f);
 	answerBox[1].position = VECTOR2(answerBox[0].position.x + AnswerConfig::boxSize.x + ofset, Screen::HEIGHT - Screen::HEIGHT / 4.0f);
 	answerBox[2].position = VECTOR2(answerBox[1].position.x + AnswerConfig::boxSize.x + ofset, Screen::HEIGHT - Screen::HEIGHT / 4.0f);
+
+	mouseInput = nullptr;
 }
 
 Answer::~Answer()
@@ -22,11 +26,16 @@ Answer::~Answer()
 
 void Answer::Update()
 {
+	if (mouseInput == nullptr)
+	{
+		mouseInput = FindGameObject<MouseInputManager>();
+	}
+
 	for (int i = 0; i < MAX_BOX_NUM; i++)
 	{
-		if (answerBox[i].checkHit)
+		if (mouseInput->IsClickArea(answerBox[i].position,AnswerConfig::boxSize))
 		{
-			answerBox[i].position.y = answerBox[i].position.y + 50.0f;
+			answerBox[i].position.y = answerBox[i].position.y - 50.0f;
 		}
 	}
 }

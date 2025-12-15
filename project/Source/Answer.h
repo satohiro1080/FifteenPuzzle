@@ -1,6 +1,7 @@
 #pragma once
 #include "../Library/GameObject.h"
 
+class MouseInputManager;
 class Answer : public GameObject
 {
 public:
@@ -21,6 +22,6 @@ private:
 	};
 	ANSWER_BOX answerBox[MAX_BOX_NUM];
 
-
+	MouseInputManager* mouseInput;
 
 };
