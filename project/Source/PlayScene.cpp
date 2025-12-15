@@ -101,6 +101,16 @@ void PlayScene::Draw()
 	}
 	m_frame->Draw();
 	m_question->Draw();
+
+	//=== MouseInputManagerテストコード ============
+	DrawBox(400, 50, 400 + 100, 50 + 100, 0xFFFFFF, FALSE);
+
+	if (m_mouseInputManager->IsClickArea(VECTOR2(400, 50), VECTOR2(100, 100)))
+	{
+		DrawString(100, 450, "クリックされました", 0xFFFFFF);
+	}
+	//==============================================
+
 	DrawString(0, 0, "PLAY SCENE", GetColor(255, 255, 255));
 	DrawString(100, 400, "Push [T]Key To Title", GetColor(255, 255, 255));
 }
