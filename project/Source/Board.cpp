@@ -90,3 +90,8 @@ bool Board::IsOutside(int x, int y)
 
 	return false;
 }
+
+bool Board::IsCorrectPos(int panelNumber)
+{
+	return false;
+}
