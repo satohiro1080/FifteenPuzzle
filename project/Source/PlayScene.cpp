@@ -1,7 +1,7 @@
 #include "PlayScene.h"
 #include "Screen.h"
 #include "Board.h"
-
+#include"Frame.h"
 namespace
 {
 	static const int TILE_SIZE = 20;
@@ -13,6 +13,8 @@ PlayScene::PlayScene()
 	m_board = new Board();
 	m_board->Swap(0, 0, 1, 1);
 	m_board->Slide(1, 2);
+
+	m_frame = new Frame();
 
 	m_cursorX = 0;
 	m_cursorY = 0;
@@ -86,7 +88,7 @@ void PlayScene::Draw()
 			}
 		}
 	}
-
+	m_frame->Draw();
 	DrawString(0, 0, "PLAY SCENE", GetColor(255, 255, 255));
 	DrawString(100, 400, "Push [T]Key To Title", GetColor(255, 255, 255));
 }
