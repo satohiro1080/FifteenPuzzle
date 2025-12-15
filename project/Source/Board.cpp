@@ -93,5 +93,16 @@ bool Board::IsOutside(int x, int y)
 
 bool Board::IsCorrectPos(int panelNumber)
 {
-	return false;
+	int x, y;
+	NumberToPos(panelNumber, x, y);
+
+	return m_grid[y][x] == panelNumber;
+}
+
+void Board::NumberToPos(int number, int& refPosX, int& refPosY)
+{
+	if (GRID_WIDTH == 0) return;
+
+	refPosX = number % GRID_WIDTH;
+	refPosY = number / GRID_WIDTH;
 }
