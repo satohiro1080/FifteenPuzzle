@@ -1,4 +1,5 @@
 #include "MouseInputManager.h"
+#include "../Library/Time.h"
 #include <DxLib.h>
 
 namespace
@@ -7,6 +8,9 @@ namespace
 	static const int CURSOR_COLOR_NORMAL = 0xFFAAAA;
 	static const int CURSOR_COLOR_CLICK = 0xFF0000;
 	static const int CURSOR_ALPHA = 100;
+
+	static const int AREA_ALPHA = 100;
+	static const int AREA_COLOR_MOUSE_OVER = 0xAAFFAA;
 }
 
 MouseInputManager::MouseInputManager()
@@ -39,6 +43,29 @@ void MouseInputManager::Update()
 
 void MouseInputManager::Draw()
 {
+	drawCursor();
+
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, AREA_ALPHA);
+	{
+		for (const Area& area : m_currentFrameArea)
+		{
+			if (area.state < AreaState::MOUSE_OVER) continue;
+
+			int x1 = (int)area.pos.x;
+			int y1 = (int)area.pos.y;
+			int x2 = (int)(area.pos.x + area.size.x);
+			int y2 = (int)(area.pos.y + area.size.y);
+			int color = AREA_COLOR_MOUSE_OVER;
+
+			DrawBox(x1, y1, x2, y2, color, true);
+		}
+		m_currentFrameArea.clear();
+	}
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+}
+
+void MouseInputManager::drawCursor()
+{
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, CURSOR_ALPHA);
 	{
 		int x = (int)m_cursorPosition.x;
@@ -51,25 +78,34 @@ void MouseInputManager::Draw()
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
 
-bool MouseInputManager::IsClickArea(const VECTOR2& areaPos, const VECTOR2& areaSize) const
+bool MouseInputManager::IsClickArea(const VECTOR2& areaPos, const VECTOR2& areaSize)
 {
-	if (m_isClick == false) return false;
+	if (IsMouseOverArea(areaPos, areaSize))
+	{
+		if (m_isClick) return true;
+	}
 
-	return IsMouseOverArea(areaPos, areaSize);
+	return false;
 }
 
-bool MouseInputManager::IsMouseOverArea(const VECTOR2& areaPos, const VECTOR2& areaSize) const
+bool MouseInputManager::IsMouseOverArea(const VECTOR2& areaPos, const VECTOR2& areaSize)
 {
+	Area area = Area{ areaPos, areaSize, AreaState::NONE };
+
 	VECTOR2 areaEnd = areaPos + areaSize;
 
-	// 矩形内にカーソルがあれば
+	// 矩形内にカーソルがあればtrue
+	bool ret = false;
 	if (m_cursorPosition.x > areaPos.x &&
 		m_cursorPosition.x <= areaEnd.x &&
 		m_cursorPosition.y > areaPos.y &&
 		m_cursorPosition.y <= areaEnd.y)
 	{
-		return true;
+		area.state = AreaState::MOUSE_OVER;
+		ret = true;
 	}
 
-	return false;
+	m_currentFrameArea.push_back(area);
+
+	return ret;
 }
