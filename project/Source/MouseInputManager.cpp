@@ -55,6 +55,11 @@ bool MouseInputManager::IsClickArea(const VECTOR2& areaPos, const VECTOR2& areaS
 {
 	if (m_isClick == false) return false;
 
+	return IsMouseOverArea(areaPos, areaSize);
+}
+
+bool MouseInputManager::IsMouseOverArea(const VECTOR2& areaPos, const VECTOR2& areaSize) const
+{
 	VECTOR2 areaEnd = areaPos + areaSize;
 
 	// 矩形内にカーソルがあれば
@@ -66,5 +71,5 @@ bool MouseInputManager::IsClickArea(const VECTOR2& areaPos, const VECTOR2& areaS
 		return true;
 	}
 
-	return false;
+	return true;
 }
