@@ -71,5 +71,5 @@ bool MouseInputManager::IsMouseOverArea(const VECTOR2& areaPos, const VECTOR2& a
 		return true;
 	}
 
-	return true;
+	return false;
 }

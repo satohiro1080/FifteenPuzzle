@@ -110,6 +110,10 @@ void PlayScene::Draw()
 	{
 		DrawString(100, 450, "クリックされました", 0xFFFFFF);
 	}
+	else if (m_mouseInputManager->IsMouseOverArea(VECTOR2(400, 50), VECTOR2(100, 100)))
+	{
+		DrawString(100, 450, "マウスオーバーされました", 0xFFFFFF);
+	}
 	//==============================================
 
 	DrawString(0, 0, "PLAY SCENE", GetColor(255, 255, 255));
