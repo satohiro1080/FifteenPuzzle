@@ -57,12 +57,14 @@ void Board::Shuffle()
 	// 配列をシャッフル（並べ替え）
 	std::shuffle(numbers.begin(), numbers.end(), g);
 
+	// 二次元配列に変換
 	for (int y = 0; y < GRID_HEIGHT; y++)
 	{
 		std::vector<int> line;
 
 		for (int x = 0; x < GRID_WIDTH; x++)
 		{
+			// 右下は空白
 			if (numbers.empty())
 			{
 				line.push_back(BLANK_NUM);

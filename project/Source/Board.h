@@ -6,6 +6,7 @@ class Board
 public:
 	Board();
 	~Board();
+	// 指定座標のパネルの番号を取得
 	int Get(int x, int y) const;
 	int GetWidth() const;
 	int GetHeight() const;
