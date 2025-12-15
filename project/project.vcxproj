@@ -156,6 +156,7 @@
     <ClInclude Include="Source\BootScene.h" />
     <ClInclude Include="Source\ColorDot.h" />
     <ClInclude Include="Source\ColorDotManager.h" />
+    <ClInclude Include="Source\Frame.h" />
     <ClInclude Include="Source\GetSet.h" />
     <ClInclude Include="Source\Particle.h" />
     <ClInclude Include="Source\ParticleComponent.h" />
@@ -193,6 +194,7 @@
     <ClCompile Include="Source\BootScene.cpp" />
     <ClCompile Include="Source\ColorDot.cpp" />
     <ClCompile Include="Source\ColorDotManager.cpp" />
+    <ClCompile Include="Source\Frame.cpp" />
     <ClCompile Include="Source\Particle.cpp" />
     <ClCompile Include="Source\ParticleManager.cpp" />
     <ClCompile Include="Source\PlayScene.cpp" />

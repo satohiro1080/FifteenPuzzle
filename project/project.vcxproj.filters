@@ -80,6 +80,9 @@
     <ClCompile Include="Source\Board.cpp">
       <Filter>PlayScene\Puzzle</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Frame.cpp">
+      <Filter>PlayScene\Puzzle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Screen.h" />
@@ -193,6 +196,9 @@
       <Filter>PlayScene\Particle</Filter>
     </ClInclude>
     <ClInclude Include="Source\Board.h">
+      <Filter>PlayScene\Puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Frame.h">
       <Filter>PlayScene\Puzzle</Filter>
     </ClInclude>
   </ItemGroup>
