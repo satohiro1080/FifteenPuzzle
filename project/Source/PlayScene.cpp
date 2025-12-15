@@ -74,6 +74,7 @@ void PlayScene::Update()
 		m_cursorX = 0;
 		m_cursorY = 0;
 	}
+	m_question->Update();
 }
 
 void PlayScene::Draw()
@@ -99,6 +100,7 @@ void PlayScene::Draw()
 		}
 	}
 	m_frame->Draw();
+	m_question->Draw();
 	DrawString(0, 0, "PLAY SCENE", GetColor(255, 255, 255));
 	DrawString(100, 400, "Push [T]Key To Title", GetColor(255, 255, 255));
 }
