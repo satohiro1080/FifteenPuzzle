@@ -83,6 +83,18 @@
     <ClCompile Include="Source\Frame.cpp">
       <Filter>PlayScene\Puzzle</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Answer.cpp">
+      <Filter>PlayScene\Quiz</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Question.cpp">
+      <Filter>PlayScene\Quiz</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameManager.cpp">
+      <Filter>PlayScene\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MouseInputManager.cpp">
+      <Filter>PlayScene\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Screen.h" />
@@ -201,6 +213,18 @@
     <ClInclude Include="Source\Frame.h">
       <Filter>PlayScene\Puzzle</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Answer.h">
+      <Filter>PlayScene\Quiz</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Question.h">
+      <Filter>PlayScene\Quiz</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameManager.h">
+      <Filter>PlayScene\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MouseInputManager.h">
+      <Filter>PlayScene\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Library">
@@ -235,6 +259,15 @@
     </Filter>
     <Filter Include="PlayScene\Puzzle">
       <UniqueIdentifier>{8cab1d47-57c9-4aff-b94f-22f25820e255}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayScene\Quiz">
+      <UniqueIdentifier>{f811b065-c556-422d-a50e-fe817ffd36d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayScene\Input">
+      <UniqueIdentifier>{786c62ac-e7cb-4cc0-b47e-02307139cec5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayScene\GameManager">
+      <UniqueIdentifier>{2b915438-c9fe-4762-8617-0ac368531e73}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
