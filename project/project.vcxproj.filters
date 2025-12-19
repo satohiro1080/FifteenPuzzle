@@ -222,9 +222,6 @@
     <ClInclude Include="Source\Question.h">
       <Filter>PlayScene\Quiz</Filter>
     </ClInclude>
-    <ClInclude Include="Source\GameManager.h">
-      <Filter>PlayScene\GameManager</Filter>
-    </ClInclude>
     <ClInclude Include="Source\MouseInputManager.h">
       <Filter>PlayScene\Input</Filter>
     </ClInclude>
@@ -233,6 +230,9 @@
     </ClInclude>
     <ClInclude Include="Source\QuizDefine.h">
       <Filter>PlayScene\Quiz</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameManager.h">
+      <Filter>PlayScene\GameManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
