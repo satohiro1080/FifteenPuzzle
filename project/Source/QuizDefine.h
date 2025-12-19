@@ -22,4 +22,11 @@ namespace Quiz
 		std::string PanelImagePath;
 		std::string AnswerImagePath;
 	};
+
+	Data QUIZ_DATAS[]
+	{
+		Data(0, "この山は何？",			"富士山Image.png",					"富士山Answer.png"),
+		Data(1, "この人物は誰？",		"ハギワラ先生Image.png",			"ハギワラ先生Answer.png"),
+		Data(2, "「？」に入るのは何？",	"めっちゃすごい謎解きImage.png",	"めっちゃすごい謎解きAnswer.png"),
+	};
 }
