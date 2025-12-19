@@ -169,6 +169,8 @@
     <ClInclude Include="Source\P_DrawBox.h" />
     <ClInclude Include="Source\P_RandomPosition.h" />
     <ClInclude Include="Source\Question.h" />
+    <ClInclude Include="Source\QuizDefine.h" />
+    <ClInclude Include="Source\QuizManager.h" />
     <ClInclude Include="Source\Screen.h" />
     <ClInclude Include="Source\PlayScene.h" />
     <ClInclude Include="Source\SceneFactory.h" />
@@ -206,6 +208,7 @@
     <ClCompile Include="Source\ParticleManager.cpp" />
     <ClCompile Include="Source\PlayScene.cpp" />
     <ClCompile Include="Source\Question.cpp" />
+    <ClCompile Include="Source\QuizManager.cpp" />
     <ClCompile Include="Source\SceneFactory.cpp" />
     <ClCompile Include="Source\SelectBase.cpp" />
     <ClCompile Include="Source\SelectCurve.cpp" />

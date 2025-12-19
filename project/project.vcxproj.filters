@@ -95,6 +95,9 @@
     <ClCompile Include="Source\MouseInputManager.cpp">
       <Filter>PlayScene\Input</Filter>
     </ClCompile>
+    <ClCompile Include="Source\QuizManager.cpp">
+      <Filter>PlayScene\Quiz</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Screen.h" />
@@ -224,6 +227,12 @@
     </ClInclude>
     <ClInclude Include="Source\MouseInputManager.h">
       <Filter>PlayScene\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\QuizManager.h">
+      <Filter>PlayScene\Quiz</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\QuizDefine.h">
+      <Filter>PlayScene\Quiz</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
