@@ -10,8 +10,6 @@ public:
 	void Update() override;
 	void Draw() override;
 
-	void drawCursor();
-
 	VECTOR2 GetCursorPos() const { return m_cursorPosition; }
 	bool GetIsClick() const { return m_isClick; }
 
@@ -52,4 +50,7 @@ private:
 
 	//=== デバッグ表示管理用 ===
 	std::list<Area> m_currentFrameArea;
+
+	void drawArea();
+	void drawCursor();
 };

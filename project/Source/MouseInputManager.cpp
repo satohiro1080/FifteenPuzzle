@@ -44,7 +44,25 @@ void MouseInputManager::Update()
 void MouseInputManager::Draw()
 {
 	drawCursor();
+	drawArea();
+}
 
+void MouseInputManager::drawCursor()
+{
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, CURSOR_ALPHA);
+	{
+		int x = (int)m_cursorPosition.x;
+		int y = (int)m_cursorPosition.y;
+		int color = m_isClick ?
+			CURSOR_COLOR_CLICK :
+			CURSOR_COLOR_NORMAL;
+		DrawCircle(x, y, CURSOR_RADIUS, color);
+	}
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+}
+
+void MouseInputManager::drawArea()
+{
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, AREA_ALPHA);
 	{
 		for (const Area& area : m_currentFrameArea)
@@ -60,20 +78,6 @@ void MouseInputManager::Draw()
 			DrawBox(x1, y1, x2, y2, color, true);
 		}
 		m_currentFrameArea.clear();
-	}
-	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
-}
-
-void MouseInputManager::drawCursor()
-{
-	SetDrawBlendMode(DX_BLENDMODE_ALPHA, CURSOR_ALPHA);
-	{
-		int x = (int)m_cursorPosition.x;
-		int y = (int)m_cursorPosition.y;
-		int color = m_isClick ?
-			CURSOR_COLOR_CLICK :
-			CURSOR_COLOR_NORMAL;
-		DrawCircle(x, y, CURSOR_RADIUS, color);
 	}
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
