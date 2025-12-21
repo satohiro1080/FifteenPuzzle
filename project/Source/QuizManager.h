@@ -12,6 +12,9 @@ public:
 	QuizManager();
 	~QuizManager();
 
+	// クイズデータ読み込み
+	void LoadQuizDatas();
+
 	// クイズの順番をシャッフルする
 	void ShuffleQuizQue();
 
