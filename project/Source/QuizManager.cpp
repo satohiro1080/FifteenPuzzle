@@ -34,7 +34,7 @@ void QuizManager::ShuffleQuizQue()
 
 Quiz::Data QuizManager::GetNextQuiz()
 {
-	if (m_quizDatas.empty()) return;
+	//if (m_quizDatas.empty()) return;
 	if (m_quizQue.empty()) ShuffleQuizQue();
 
 	// ‡”ÔƒŠƒXƒg‚Ìæ“ª‚©‚çˆêŒÂæ‚èo‚·
