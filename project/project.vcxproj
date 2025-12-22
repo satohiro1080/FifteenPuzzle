@@ -178,6 +178,8 @@
     <ClInclude Include="Source\SelectBase.h" />
     <ClInclude Include="Source\SelectCurve.h" />
     <ClInclude Include="Source\SelectRect.h" />
+    <ClInclude Include="Source\singleton.h" />
+    <ClInclude Include="Source\SoundManager.h" />
     <ClInclude Include="Source\TitleScene.h" />
     <ClInclude Include="Source\Transform.h" />
     <ClInclude Include="Source\util.h" />
@@ -215,6 +217,8 @@
     <ClCompile Include="Source\SelectBase.cpp" />
     <ClCompile Include="Source\SelectCurve.cpp" />
     <ClCompile Include="Source\SelectRect.cpp" />
+    <ClCompile Include="Source\singleton.cpp" />
+    <ClCompile Include="Source\SoundManager.cpp" />
     <ClCompile Include="Source\TitleScene.cpp" />
     <ClCompile Include="Source\Transform.cpp" />
     <ClCompile Include="Source\vector.cpp" />
