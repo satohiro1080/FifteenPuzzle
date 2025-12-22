@@ -107,6 +107,7 @@ void Answer::Update()
 				//answerBox[i].position.y = answerBox[i].position.y - 50.0f;
 
 				// ここで選択した配列番号を送るよ
+				gameManaer = FindGameObject<GameManager>();
 				gameManaer->SetPlayerAnswer(i);
 				// 例:GameManager->GetAnswer(i); [配列番号 = 選択した番号]　になっているからこれだけでできるかも
 				break;
