@@ -3,6 +3,7 @@
 
 #include "MouseInputManager.h"
 #include "Board.h"
+#include "GameManager.h"
 
 namespace AnswerConfig
 {
@@ -39,10 +40,6 @@ Answer::Answer()
 	answerBox[GREEN].panelNum = AnswerConfig::GREEN_NUM;
 	answerBox[BLUE].panelNum = AnswerConfig::BLUE_NUM;
 
-	answerBox[RED].text = "‚ ‚ ‚ ‚ ‚ ";
-	answerBox[GREEN].text = "‚ ‚ ‚ ‚ ‚ ";
-	answerBox[BLUE].text = "‚ ‚ ‚ ‚ ‚ ";
-
 	for (int i = 0; i < MAX_BOX_NUM; i++)
 	{
 		answerBox[i].animTime = 0.0f;
@@ -74,6 +71,12 @@ void Answer::Update()
 	{
 		board = FindGameObject<Board>();
 	}
+
+	GameManager* gameM = FindGameObject<GameManager>();
+
+	answerBox[RED].text = gameM->GetQuiz().Answer0Text;
+	answerBox[GREEN].text = gameM->GetQuiz().Answer1Text;
+	answerBox[BLUE].text = gameM->GetQuiz().Answer2Text;
 
 	for (int i = 0; i < MAX_BOX_NUM; i++)
 	{
