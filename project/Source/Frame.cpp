@@ -90,4 +90,7 @@ void Frame::SetCloseShutter(float time)
 
 void Frame::SetQuiz(int id)
 {
+	std::string file = "data/quiz/";
+	std::string png = "00" + std::to_string(id) + ".png";
+	quizImage = LoadGraph((file + png).c_str());
 }
