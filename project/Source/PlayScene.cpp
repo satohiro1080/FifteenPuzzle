@@ -7,6 +7,7 @@
 #include "Question.h"
 #include "MouseInputManager.h"
 #include "QuizManager.h"
+#include "BoardMove.h"
 
 namespace
 {
@@ -20,6 +21,8 @@ PlayScene::PlayScene()
 	new QuizManager();
 
 	m_board = new Board();
+	BoardMove* move = new BoardMove();
+	move->SetBoardRef(m_board);
 
 	m_frame = new Frame();
 	m_frame->SetBoard(m_board);

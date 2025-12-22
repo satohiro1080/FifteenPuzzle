@@ -98,6 +98,9 @@
     <ClCompile Include="Source\QuizManager.cpp">
       <Filter>PlayScene\Quiz</Filter>
     </ClCompile>
+    <ClCompile Include="Source\BoardMove.cpp">
+      <Filter>PlayScene\Puzzle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Screen.h" />
@@ -233,6 +236,9 @@
     </ClInclude>
     <ClInclude Include="Source\GameManager.h">
       <Filter>PlayScene\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BoardMove.h">
+      <Filter>PlayScene\Puzzle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

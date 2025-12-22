@@ -154,6 +154,7 @@
     <ClInclude Include="Library\Time.h" />
     <ClInclude Include="Source\Answer.h" />
     <ClInclude Include="Source\Board.h" />
+    <ClInclude Include="Source\BoardMove.h" />
     <ClInclude Include="Source\BootScene.h" />
     <ClInclude Include="Source\ColorDot.h" />
     <ClInclude Include="Source\ColorDotManager.h" />
@@ -198,6 +199,7 @@
     <ClCompile Include="Library\Time.cpp" />
     <ClCompile Include="Source\Answer.cpp" />
     <ClCompile Include="Source\Board.cpp" />
+    <ClCompile Include="Source\BoardMove.cpp" />
     <ClCompile Include="Source\BootScene.cpp" />
     <ClCompile Include="Source\ColorDot.cpp" />
     <ClCompile Include="Source\ColorDotManager.cpp" />
