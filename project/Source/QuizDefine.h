@@ -15,8 +15,8 @@ namespace Quiz
 			QuestionText = questionText;
 			PanelImagePath = panelImagePath;
 			Answer0Text = answer0Text;
-			Answer1Text = Answer1Text;
-			Answer2Text = Answer2Text;
+			Answer1Text = answer1Text;
+			Answer2Text = answer2Text;
 		}
 
 		int ID;

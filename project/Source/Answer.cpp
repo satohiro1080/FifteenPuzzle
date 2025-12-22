@@ -72,11 +72,14 @@ void Answer::Update()
 		board = FindGameObject<Board>();
 	}
 
-	GameManager* gameM = FindGameObject<GameManager>();
 
-	answerBox[RED].text = gameM->GetQuiz().Answer0Text;
-	answerBox[GREEN].text = gameM->GetQuiz().Answer1Text;
-	answerBox[BLUE].text = gameM->GetQuiz().Answer2Text;
+	if (gameManaer == nullptr)
+	{
+		gameManaer = FindGameObject<GameManager>();
+	}
+	answerBox[RED].text = gameManaer->GetQuiz().Answer0Text;
+	answerBox[GREEN].text = gameManaer->GetQuiz().Answer1Text;
+	answerBox[BLUE].text = gameManaer->GetQuiz().Answer2Text;
 
 	for (int i = 0; i < MAX_BOX_NUM; i++)
 	{
@@ -110,6 +113,17 @@ void Answer::Update()
 				// —á:GameManager->GetAnswer(i); [”z—ñ”Ô† = ‘I‘ð‚µ‚½”Ô†]@‚É‚È‚Á‚Ä‚¢‚é‚©‚ç‚±‚ê‚¾‚¯‚Å‚Å‚«‚é‚©‚à
 				break;
 			}
+
+			if (mouseInput->IsMouseOverArea(answerBox[i].position - AnswerConfig::boxSize / 2.0f, AnswerConfig::boxSize))
+			{
+				answerBox[i].animTime += DX_PI_F / 30.0f;
+				answerBox[i].exRate = answerBox[i].exRate + sinf(answerBox[i].animTime) / 100.0f;
+			}
+			else
+			{
+				answerBox[i].exRate = AnswerConfig::EXRATE;
+				answerBox[i].animTime = 0.0f;
+			}
 		}
 		else
 		{
@@ -117,17 +131,6 @@ void Answer::Update()
 			{
 				answerBox[i].shutterExRate += 0.5f;
 			}
-		}
-
-		if (mouseInput->IsMouseOverArea(answerBox[i].position - AnswerConfig::boxSize / 2.0f, AnswerConfig::boxSize))
-		{
-			answerBox[i].animTime += DX_PI_F / 30.0f;
-			answerBox[i].exRate = answerBox[i].exRate + sinf(answerBox[i].animTime) / 100.0f;
-		}
-		else
-		{
-			answerBox[i].exRate = AnswerConfig::EXRATE;
-			answerBox[i].animTime = 0.0f;
 		}
 	}
 }
