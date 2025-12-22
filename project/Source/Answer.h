@@ -44,5 +44,5 @@ private:
 
 	MouseInputManager* mouseInput;
 	Board* board;
-
+	GameManager* gameManaer;
 };
