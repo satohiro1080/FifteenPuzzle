@@ -36,6 +36,8 @@ PlayScene::PlayScene()
 	m_cursorY = 0;
 
 	m_pushed = false;
+
+	m_backGround = LoadGraph("data/texture/backGround.png");
 }
 
 PlayScene::~PlayScene()
@@ -86,6 +88,8 @@ void PlayScene::Update()
 
 void PlayScene::Draw()
 {
+	DrawGraph(0, 0, m_backGround, TRUE);
+
 	for (int y = 0; y < m_board->GetHeight(); y++)
 	{
 		for (int x = 0; x < m_board->GetWidth(); x++)

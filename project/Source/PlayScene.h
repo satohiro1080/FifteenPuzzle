@@ -22,6 +22,8 @@ private:
 	Question* m_question;
 	MouseInputManager* m_mouseInputManager;
 
+	int m_backGround;
+
 	int m_cursorX;
 	int m_cursorY;
 
