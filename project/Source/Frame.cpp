@@ -1,7 +1,7 @@
 #include "Frame.h"
 #include"Board.h"
 #include<unordered_map>
-
+#include<string.h>
 
 Frame::Frame()
 {
@@ -11,6 +11,15 @@ Frame::Frame()
 	
 	
 	//board = new Board();
+	
+	
+	std::string file = "data/quiz/";
+	quizImage = LoadGraph("data/quiz/000.png");
+	for (int i = 0; i < 15; i++) {
+		std::string png ="t"+ std::to_string(i) + ".png";
+
+		numImage[i]  = LoadGraph((file + png).c_str());
+	}
 }
 
 Frame::~Frame()
@@ -42,26 +51,27 @@ void Frame::Draw()
 
 			int num = board->Get(x, y);
 			bool correct = board->IsCorrectPos(num);
-			//マスと番号一致してたら緑
+			//正しいマスにあれば答えが分かる
 			if (correct && num != 15) {
 				DrawBox(baseX, baseY, baseX + SQUARE_SIZE, baseY + SQUARE_SIZE, GetColor(0, 255, 0), true);
+				int imaX = SQUARE_SIZE * x;
+				int imaY = SQUARE_SIZE * y;
+				DrawRectExtendGraph(baseX, baseY, baseX + SQUARE_SIZE, baseY + SQUARE_SIZE, imaX, imaY, SQUARE_SIZE, SQUARE_SIZE, quizImage, TRUE);
+				DrawFormatString(baseX, baseY, GetColor(0, 255, 255), "%d", num);
 			}
-
+			//違うなら数字画像
 			else if (num != 15) {
-				DrawBox(baseX, baseY, baseX + SQUARE_SIZE, baseY + SQUARE_SIZE, GetColor(255, 0, 0), true);
+				DrawGraph(baseX, baseY, numImage[num], true);
 			}
-			if (num != 15) {
-				DrawFormatString(baseX, baseY, GetColor(255, 255, 255), "%d", num);
-			}
-
+			
+			
+			DrawBox(SPACE_X, SPACE_Y, SPACE_X + SQUARE_SIZE * 4, SPACE_Y + SQUARE_SIZE * 4, GetColor(0, 0, 0), false);
+			
 			if (cursor.x == x && cursor.y == y) {
 				DrawBox(baseX, baseY, baseX + SQUARE_SIZE, baseY + SQUARE_SIZE, GetColor(0, 0, 255), false);
 			}
-			else {
-				DrawBox(baseX, baseY, baseX + SQUARE_SIZE, baseY + SQUARE_SIZE, GetColor(255, 255, 255), false);
-			}
 		}
-		//DrawFormatString(100, 100, GetColor(255, 255, 255), "%d", board->Get(0,0));
+
 	}
 	SetFontSize(20);
 }
@@ -76,4 +86,8 @@ void Frame::SetCloseShutter(float time)
 {
 	shutterTime = time;
 	shutterS = ssCLOSE;
+}
+
+void Frame::SetQuiz(int id)
+{
 }
