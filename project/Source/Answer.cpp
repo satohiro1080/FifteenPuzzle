@@ -75,6 +75,11 @@ void Answer::Update()
 		board = FindGameObject<Board>();
 	}
 
+	if (gameManaer == nullptr)
+	{
+		gameManaer = FindGameObject<GameManager>();
+	}
+
 	for (int i = 0; i < MAX_BOX_NUM; i++)
 	{
 		// 対象のパネルがハマったらセレクト可能にする
@@ -106,6 +111,17 @@ void Answer::Update()
 				// 例:GameManager->GetAnswer(i); [配列番号 = 選択した番号]　になっているからこれだけでできるかも
 				break;
 			}
+
+			if (mouseInput->IsMouseOverArea(answerBox[i].position - AnswerConfig::boxSize / 2.0f, AnswerConfig::boxSize))
+			{
+				answerBox[i].animTime += DX_PI_F / 30.0f;
+				answerBox[i].exRate = answerBox[i].exRate + sinf(answerBox[i].animTime) / 100.0f;
+			}
+			else
+			{
+				answerBox[i].exRate = AnswerConfig::EXRATE;
+				answerBox[i].animTime = 0.0f;
+			}
 		}
 		else
 		{
@@ -113,17 +129,6 @@ void Answer::Update()
 			{
 				answerBox[i].shutterExRate += 0.5f;
 			}
-		}
-
-		if (mouseInput->IsMouseOverArea(answerBox[i].position - AnswerConfig::boxSize / 2.0f, AnswerConfig::boxSize))
-		{
-			answerBox[i].animTime += DX_PI_F / 30.0f;
-			answerBox[i].exRate = answerBox[i].exRate + sinf(answerBox[i].animTime) / 100.0f;
-		}
-		else
-		{
-			answerBox[i].exRate = AnswerConfig::EXRATE;
-			answerBox[i].animTime = 0.0f;
 		}
 	}
 }
