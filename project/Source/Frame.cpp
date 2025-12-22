@@ -2,7 +2,7 @@
 #include"Board.h"
 #include<unordered_map>
 #include<string.h>
-
+#include"GameManager.h"
 Frame::Frame()
 {
 	shutterTime = 0;
@@ -14,7 +14,7 @@ Frame::Frame()
 	
 	
 	std::string file = "data/quiz/";
-	quizImage = LoadGraph("data/quiz/000.png");
+	//quizImage = LoadGraph("data/quiz/000.png");
 	for (int i = 0; i < 15; i++) {
 		std::string png ="t"+ std::to_string(i) + ".png";
 
@@ -28,17 +28,9 @@ Frame::~Frame()
 
 void Frame::Update()
 {
-	switch (shutterS)
-	{	
-	case ssSTOP:
-		break;
-	case ssOPEN:
-		break;
-	case ssCLOSE:
-		break;
-	default:
-		break;
-	}
+	GameManager* gameM = FindGameObject<GameManager>();
+	SetQuiz(gameM->GetQuiz().ID);
+
 }
 
 void Frame::Draw()

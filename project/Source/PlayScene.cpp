@@ -27,6 +27,7 @@ PlayScene::PlayScene()
 
 	m_frame = new Frame();
 	m_frame->SetBoard(m_board);
+	
 	m_answer = new Answer();
 	m_answer->GetBoard(m_board);
 
