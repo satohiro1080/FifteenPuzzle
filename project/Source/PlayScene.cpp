@@ -6,6 +6,7 @@
 #include "Answer.h"
 #include "Question.h"
 #include "MouseInputManager.h"
+#include "QuizManager.h"
 
 namespace
 {
@@ -16,6 +17,7 @@ namespace
 PlayScene::PlayScene()
 {
 	m_gameManager = new GameManager();
+	new QuizManager();
 
 	m_board = new Board();
 

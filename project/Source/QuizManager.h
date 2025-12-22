@@ -1,12 +1,13 @@
 #pragma once
 #include "QuizDefine.h"
+#include "../Library/GameObject.h"
 #include <vector>
 #include <list>
 
 // 全問題のデータを管理する
 // 基本は GetNextQuiz() から問題を取得してね
 // もしかしたら生成場所コモンシーンにするかも
-class QuizManager
+class QuizManager : public GameObject
 {
 public:
 	QuizManager();
