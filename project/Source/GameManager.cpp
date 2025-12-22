@@ -127,11 +127,12 @@ void GameManager::Draw()
 
 	}
 
-
+	/*
 	DrawFormatString(50, 500, 0xffffff, "g_state = %d", g_state, true, false);
 	DrawFormatString(50, 550, 0xffffff, "ñ‚%d", quiz.ID, true, false);
 	DrawFormatString(50, 600, 0xffffff, "ê≥âî≠ï\Ç‹Ç≈%d", resultTime, true, false);
 	DrawFormatString(50, 650, 0xffffff, "éüÇÃñ‚ëËÇ‹Ç≈%d", displayTime, true, false);
+	*/
 }
 
 void GameManager::SetPlayerAnswer(int _answer)

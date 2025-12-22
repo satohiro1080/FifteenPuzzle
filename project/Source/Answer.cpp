@@ -1,6 +1,6 @@
 #include "Answer.h"
 #include "Screen.h"
-
+#include "GameManager.h"
 #include "MouseInputManager.h"
 #include "Board.h"
 #include "GameManager.h"
@@ -105,6 +105,7 @@ void Answer::Update()
 				//answerBox[i].position.y = answerBox[i].position.y - 50.0f;
 
 				// ここで選択した配列番号を送るよ
+				gameManaer->SetPlayerAnswer(i);
 				// 例:GameManager->GetAnswer(i); [配列番号 = 選択した番号]　になっているからこれだけでできるかも
 				break;
 			}
