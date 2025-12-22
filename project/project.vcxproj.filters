@@ -98,6 +98,15 @@
     <ClCompile Include="Source\QuizManager.cpp">
       <Filter>PlayScene\Quiz</Filter>
     </ClCompile>
+    <ClCompile Include="Source\BoardMove.cpp">
+      <Filter>PlayScene\Puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SoundManager.cpp">
+      <Filter>PlayScene\SoundManger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\singleton.cpp">
+      <Filter>PlayScene\SoundManger</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Screen.h" />
@@ -234,6 +243,15 @@
     <ClInclude Include="Source\GameManager.h">
       <Filter>PlayScene\GameManager</Filter>
     </ClInclude>
+    <ClInclude Include="Source\BoardMove.h">
+      <Filter>PlayScene\Puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SoundManager.h">
+      <Filter>PlayScene\SoundManger</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\singleton.h">
+      <Filter>PlayScene\SoundManger</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Library">
@@ -277,6 +295,9 @@
     </Filter>
     <Filter Include="PlayScene\GameManager">
       <UniqueIdentifier>{2b915438-c9fe-4762-8617-0ac368531e73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayScene\SoundManger">
+      <UniqueIdentifier>{fe07b0fe-a9fa-4b8e-b857-24fc78142c29}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

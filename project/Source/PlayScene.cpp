@@ -7,6 +7,8 @@
 #include "Question.h"
 #include "MouseInputManager.h"
 #include "QuizManager.h"
+#include "BoardMove.h"
+#include "singleton.h"
 
 namespace
 {
@@ -20,6 +22,8 @@ PlayScene::PlayScene()
 	new QuizManager();
 
 	m_board = new Board();
+	BoardMove* move = new BoardMove();
+	move->SetBoardRef(m_board);
 
 	m_frame = new Frame();
 	m_frame->SetBoard(m_board);
@@ -40,6 +44,7 @@ PlayScene::PlayScene()
 PlayScene::~PlayScene()
 {
 	delete m_board;
+	SingletonDeleter::Delete();
 }
 
 void PlayScene::Update()
