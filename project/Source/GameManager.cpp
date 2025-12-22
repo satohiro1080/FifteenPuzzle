@@ -69,7 +69,7 @@ void GameManager::Update()
 		{
 			resultTime = 0;
 		}
-		if (answerNo == correctAnswerNo)
+		if (answerNo == quiz.CorrectAnswer)
 		{
 			answer = true;
 			//resultTime--;
