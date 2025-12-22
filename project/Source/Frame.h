@@ -22,6 +22,8 @@ public:
 	void SetCursor(int x, int y) { cursor.x = x; cursor.y = y; }
 	//ボードをセット
 	void SetBoard(Board* b) { board = b; }
+
+	void SetQuiz(int id);
 private:
 
 	Board* board;
@@ -38,6 +40,7 @@ private:
 		ssCLOSE,
 	};
 	SHUTTER_STATE shutterS;//ゲーム開始、終了後のシャッター
-
+	int numImage[15];
 	float shutterTime;//何秒でシャッターを開け閉めするか
+	int quizImage;
 };
