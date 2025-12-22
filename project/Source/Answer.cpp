@@ -6,21 +6,22 @@
 namespace AnswerConfig
 {
 	VECTOR2 boxSize = VECTOR2(150.0f, 100.0f);
+	float EXRATE = 1.25f;
 }
 
 Answer::Answer()
 {
 	answerBox[RED].frameHandler = LoadGraph("data/texture/AnswerBoxRed3d.png");
 	answerBox[RED].backHandler = LoadGraph("data/texture/AnswerBoxRed_Back.png");
-	answerBox[RED].exRate = 1.0f;
+	answerBox[RED].exRate = AnswerConfig::EXRATE;
 
 	answerBox[GREEN].frameHandler = LoadGraph("data/texture/AnswerBoxGreen3d.png");
 	answerBox[GREEN].backHandler = LoadGraph("data/texture/AnswerBoxGreen_Back.png");
-	answerBox[GREEN].exRate = 1.0f;
+	answerBox[GREEN].exRate = AnswerConfig::EXRATE;
 
 	answerBox[BLUE].frameHandler = LoadGraph("data/texture/AnswerBoxBlue3d.png");
 	answerBox[BLUE].backHandler = LoadGraph("data/texture/AnswerBoxBlue_Back.png");
-	answerBox[BLUE].exRate = 1.0f;
+	answerBox[BLUE].exRate = AnswerConfig::EXRATE;
 
 
 	float ofset = 64.0f;
@@ -39,7 +40,11 @@ Answer::Answer()
 
 Answer::~Answer()
 {
-
+	for (int i = 0; i < MAX_BOX_NUM; i++)
+	{
+		DeleteGraph(answerBox[i].backHandler);
+		DeleteGraph(answerBox[i].frameHandler);
+	}
 }
 
 void Answer::Update()
@@ -53,7 +58,7 @@ void Answer::Update()
 	{
 		if (mouseInput->IsClickArea(answerBox[i].position - AnswerConfig:: boxSize / 2.0f,AnswerConfig::boxSize))
 		{
-			answerBox[i].position.y = answerBox[i].position.y - 50.0f;
+			//answerBox[i].position.y = answerBox[i].position.y - 50.0f;
 
 			// ここで選択した配列番号を送るよ
 			// 例:GameManager->GetAnswer(i); [配列番号 = 選択した番号]　になっているからこれだけでできるかも
@@ -61,12 +66,12 @@ void Answer::Update()
 
 		if (mouseInput->IsMouseOverArea(answerBox[i].position - AnswerConfig::boxSize / 2.0f, AnswerConfig::boxSize))
 		{
-			answerBox[i].animTime += DX_PI_F / 60.0f;
+			answerBox[i].animTime += DX_PI_F / 30.0f;
 			answerBox[i].exRate = answerBox[i].exRate + sinf(answerBox[i].animTime) / 100.0f;
 		}
 		else
 		{
-			answerBox[i].exRate = 1.0f;
+			answerBox[i].exRate = AnswerConfig::EXRATE;
 			answerBox[i].animTime = 0.0f;
 		}
 	}
@@ -83,6 +88,12 @@ void Answer::Draw()
 
 	DrawRectRotaGraph3F(answerBox[BLUE].position.x, answerBox[BLUE].position.y, 0, 0, AnswerConfig::boxSize.x, AnswerConfig::boxSize.y,
 		AnswerConfig::boxSize.x / 2.0f, AnswerConfig::boxSize.y / 2.0f, answerBox[BLUE].exRate, answerBox[BLUE].exRate, 0.0f, answerBox[BLUE].backHandler, TRUE);
+
+	// 回答の画像表示
+
+
+
+
 
 	// 回答選択肢の枠組み
 	DrawRectRotaGraph3F(answerBox[RED].position.x, answerBox[RED].position.y, 0, 0, AnswerConfig::boxSize.x, AnswerConfig::boxSize.y,
