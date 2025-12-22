@@ -6,10 +6,10 @@ SoundManager::SoundManager()
 {
 	//=== ‚±‚±‚ÉƒTƒEƒ“ƒh“Ç‚İ‚İ‚ğ’Ç‰Á ===
 
-	//Load("quiz_start", "data/sound/quiz_start.wav", 100);
-	//Load("quiz_correct", "data/sound/quiz_correct.wav", 100);
-	//Load("quiz_wrong", "data/sound/quiz_wrong.wav", 100);
-	//Load("quiz_bgm", "data/sound/quiz_bgm.mp3", 100);
+	Load("quiz_start", "data/sound/quiz_start.wav", 100);
+	Load("quiz_correct", "data/sound/quiz_correct.wav", 100);
+	Load("quiz_wrong", "data/sound/quiz_wrong.wav", 100);
+	Load("quiz_bgm", "data/sound/quiz_bgm.wav", 100);
 
 	//=====================================
 
