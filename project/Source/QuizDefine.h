@@ -23,7 +23,7 @@ namespace Quiz
 		std::string AnswerImagePath;
 	};
 
-	Data QUIZ_DATAS[]
+	static const Data QUIZ_DATAS[]
 	{
 		Data(0, "この山は何？",			"富士山Image.png",					"富士山Answer.png"),
 		Data(1, "この人物は誰？",		"ハギワラ先生Image.png",			"ハギワラ先生Answer.png"),
